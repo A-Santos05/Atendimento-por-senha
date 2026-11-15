@@ -19,14 +19,14 @@ int main(void) {
     /* TODO (F-05): cobrir fila vazia, fila cheia, volta do indice para 0 e ordem FIFO */
     CHECA(desenfileirar(&f) == -1, "fila vazia retorna -1 ao desenfileirar");
 
-    /* teste 2 - FILA CHEIA */
+    /* teste 2 - fila */
     enfileirar(&f);
     enfileirar(&f);
     enfileirar(&f);
     enfileirar(&f);
     enfileirar(&f);
     
-    /* teste 3 - indice circular */
+    /*teste 3 - indice circular */
     CHECA(f.qtd == TAM, "fila fica cheia após inserir 5 senhas");
     CHECA(enfileirar(&f) == -1, "fila cheia retorna -1 ao enfileirar");
 
@@ -42,7 +42,7 @@ int main(void) {
 
     CHECA(f.qtd == TAM,"fila volta a ficar cheia apos reutilizar posicoes");
 
-    /*teste 4 - Ordem Fifo*/
+    /*teste 4 - retirada de senha*/
 
     CHECA(desenfileirar(&f) == 4,"primeira senha chamada e a 4");
 
@@ -56,7 +56,7 @@ int main(void) {
 
     CHECA(f.qtd == 0,"fila fica vazia apos retirar todas as senhas");
 
-    /* Teste F-04: posição da senha */
+    /*teste 5 - posição da senha */
 
     inicializar(&f);
 
