@@ -26,12 +26,29 @@ int enfileirar(Fila *f) {
 
 /* F-03: sai sempre a senha mais antiga; inicio avanca com (inicio + 1) % TAM; -1 se vazia */
 int desenfileirar(Fila *f) {
-    /* TODO (F-03) */
-    return -1;
+    if(f->qtd == 0){
+        return -1;
+    }
+
+    int senha_chamada =  f-> senhas[f->inicio];
+
+    f->inicio = (f->inicio + 1) % TAM;
+    f->qtd--;
+
+    return senha_chamada;
 }
 
 /* F-04: senha 10 com 8 e 9 na frente retorna 2; senha inexistente retorna -1 */
 int posicao_da_senha(Fila *f, int senha) {
-    /* TODO (F-04) */
+
+    for (int i = 0; i < f->qtd; i++) {
+
+        int indice = (f->inicio + i) % TAM;
+
+        if (f->senhas[indice] == senha) {
+            return i;
+        }
+    }
+
     return -1;
 }
